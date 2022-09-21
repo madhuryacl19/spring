@@ -1,7 +1,1 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: demo.dev
-data:
-  application.properties: |
-       payment.uri=http://payment-service:5000/pms/v1/orders/payment/initiate
+demo.message=message from server 
