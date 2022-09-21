@@ -4,5 +4,4 @@ metadata:
   name: demo.dev
 data:
   application.properties: |
-       payment:
-            uri: http://payment-service:5000/pms/v1/orders/payment/initiate
+       payment.uri=http://payment-service:5000/pms/v1/orders/payment/initiate
