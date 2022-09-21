@@ -1,80 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
-payment:
-  uri: http://payment-service:5000/pms/v1/orders/payment/initiate
 metadata:
   name: demo.dev
 data:
   application.properties: |
-    server.port=5000
-    spring.application.name=demo.dev
-    server.servlet.context-path=/gsp
-    ##########################
-    #DB related Properties
-    ##########################
-    spring.data.mongodb.database = gsp-service
-    ##########################
-    #Core GSP related properties
-    ##########################
-    pgp.sender.public.key=mQENBGALJVkBCAChjyyVmljp+eNsamDM7PJFFM4kaggFhsyninn+4WvyNZ1GR98e Zeg6Uuv9MYCFek9orfoLE0t6Y+6uwvL9nnbtvnlkGqsuM57BDg2pLqesHlLsJu2Q eJqJEOu/RSevf3S8XY0wvwqaht/QdZMLFMWNH3DIrrjFC/BfzhcaChip7XOzolmq znqM1lYWMPSgSTXjAmJaV0xMfu2Q5APYvy12pTYV/enELfpvh3axrF9NFlRxsrd6 iiXPdMwMHdQc/IDCZrVCmhzGPcg91Oh15MLia647rK0cyQ1qehBDNbmNJ/49oSnT muY1OelNxODmWOegUvyIR24chGSH82J/jusPABEBAAG0MUdvb2dsZSBLZXkgZm9y IEFtcGxlQ2FzaCA8bWFub2pzaGluZGVAZ29vZ2xlLmNvbT6JAVQEEwEKAD4WIQQQ B3ybC4699C461sc48+oz83RaugUCYAslWQIbAwUJA8JnAAULCQgHAgYVCgkICwIE FgIDAQIeAQIXgAAKCRA48+oz83Rauv26B/9vShJhW1llNCxOq1wlbbmeRXsgedkZ NEGksVGP2PrQb4+ZJ12WMyCJI6LAhXoMa/L/JxNFEKuBPHuykzkv6ZcVW20RKnYT TCQSGqesbL3l13YHonmGOW2hT9xHjjkah9ulVbaQQIvx5dIwXPbgpOBAVmxvHWLE iEvi1b9+Tff46KLsHPeMaPwazvOIVPoiUjq5Ai30FB8JzbBA3g0RS/o0ALxCQoKS 0jeXYziWddiXM6Ru0V9mVZtK87/L+ZGdOp0SDP4OoqMnYTsHY62dN0H0CYocK+MH ZCxH0hn4vw0utiRGvMQ/EpBob7dBtCUwYNZsZ3q5y3xkV39WwxqPQquAuQENBGAL JVkBCADr69AhWK0lu/ovWFWqxltVRpf5RCmOu/Khy2ag965WLDS/494tT0Qcp0Xz NnIYk9dm0LdSCKeebabFQ4CYcMo/gnDgKGx2pGakCPf/k3YDMmilp8bIhLfhwi2Q UyYiDVKBopMQ2zh/PlNSGFsKB5r/ZrpQAch9sFtg0TZyQQ0pjanVIzvQKxmfUPdY Dn3ggAe5LhsrcQyg6LEXsSvx9/RGAIrLYOHhDZd1IfiYISvp8S2ucwJXI1huLh2V yDwYZWhvbU5uINWfWFzvuc5Csme08hpSpLE5PHo1zahXyitCyiyMe9f7pSYAstRD Z/3USZYrPQ6sZ3zY4ZziQLyqRIzjABEBAAGJATwEGAEKACYWIQQQB3ybC4699C46 1sc48+oz83RaugUCYAslWQIbDAUJA8JnAAAKCRA48+oz83RauunzB/4+OpqCN0rv +K5joMP5P/3kb0q45Lz73QRW0e5wnksaU2OwvWRkWOsITU3D5dFVmH3stH6Z4VSh xpJ2Wx1+yrmLGme1cnz7iQbeok8P5EP/pCotoIw/zUN7FUnjzAHA0nzm69KqGqLY rGziCxWQ+D07xbUhpeuzN2vZnEAzq3QLyaAlfxIkLse+Xx3PhspiJvy5n1CJmjfd ln6ffqy3AFZcAny2HLwaHKZ6/eGVhwhSd6Y0Fiu4YnRC6x/eP2wCU2kYEHKQsycd dWmBNjGNAUe2Qh306uLvDFePZqOoe+5Itxt2+8ig6bO2v27gJKuJ6Ohel0+J+yIe Phyl4wbXFhIX =y9xp
-    pgp.my.private.key=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 =b7BC
-    pgp.my.private.key.pwd=ENC(FOVuVhYkOs0CM0YeE0gH6pEOyLwru9n2)
-    pgp.my.public.key=mQENBGJdYxkBCADF0aasaPO4StD6fzDJR1hzbUsGPq+Uip6uqCZs9riO9w4i7ysu bb0OSrKVYjKkjZUpYS9j4vURgHRcNIEukrOADrBZsmLoBx16Aqpxo0QlOU6UO2HH 6WqCDLeWP44R09hXbnpZNKdpCmCjmyuEKkR3GGag3GoWo1ebusWxSOYFZNoKIvcT LhISsbIseNYooY2IBAp87Fkyen6+vjLVmsEPawU78MWC4kcIrUdK09iFODFUr0uD /jR0YKCo38iLWFsnkwFyWIsyJSCNB3+7nPNNYX0sXmj4k5BXbgoqezKdUUlZ/0fX Ed0FgtkdzWOVDjl/b7LtZjUnBGL6PVbJkDHLABEBAAG0Mmltc3NwbCAodGVzdCBn c3ApIDxzYW5kZWVwa3VuZGVyQGludGVncmFtaWNyby5jb20+iQE/BBMBAgApBQJi XWMZAhsDBQkB4TOABwsJCAcDAgEGFQgCCQoLBBYCAwECHgECF4AACgkQUUQ2SaJR NkRoMgf/Sqs3OUv+6TtgQbcHxyE3ys2JDNsHbiNIIWXf9/yth3h24UEFfKxfyBOR tYdnlywDhtMsTWQzRXLSxenz0ISGuAhJwgxExD7ATIDojr2JAOI7WIV9n0kSANKD wCWILrEGxXQoVnqvCpL0fMTyBwCQjZDATp0rfWZOgNZV156lHWc9RXoEOnfYr1zD vRjhpyTibGAFrpXtZNZ5LjWe+V3yVxFgv/QtLUudbqdMLWH/OJUogr37dizNqLxS FjobHHYJxd38KdDj8d4ism/PnfNHMQqjUcjveS+wZGbPP9XJcSmxDVwGpGMbcjaF ahPiynGl1Aedz9RH4QArfJRmxdGrQ7kBDQRiXWMZAQgAt/3NmChSWyR5X7IATZ1h yNjTq2ForMO5NWvL72JpQGYcHIubdVeZRceofuAVLb0rgObKxqCLynJRPan0DOYi mxkqF/hUNx9ZpAXXXHRh4QOPQLM8RSolFqwLY5BiDorctWPACgbXwPEXCSzU3fV/ 12BmLUd30obMTcQHb9pDn+mBKOC6UNcnKTs0uzU44qH8lvyLETINd89O4s2ehhXg zvWrz6bXsLF7y8rk2lz7BimHdW0wJCJQQmOLoUQb7w8fWHGLueXv6bJ49vzg0Eai j0O/l9owpzIcbjXGRLatHWHHVpGqZTwYbsH6LpWjQDx0BgIYXv62NjPvhnf/TpOx cwARAQABiQElBBgBAgAPBQJiXWMZAhsMBQkB4TOAAAoJEFFENkmiUTZEjA8H/iiX C20o+josbYQvA9jyTNzIZE5TQ9poFfWJ/7sK3a8FPUFTiAlOyisDfcFEeCRdRD68 gnkcEzNAhXpoC+JXn9k26MXDaHywaH1BLN0nuHQ7Cql3/3kQ0xNpyHNX1gVGhuT2 cdWfRMvSz8u8+6qVwxUf3LKWtAySm4fPEghJGRmxTnp8xe236oLnR1vpYhmmG4Bz B/yGPZUEFH285GzjPTCF4BiO+yv1TBcVUeu5wqWbIJSkNgpLkvrrHFsmR+H7qFCO bnkRM5Vkk+mI2LRFuR8nfQkB51yFwD62msvmA5/88jVKD/DUm8HOwBe/VptFk/rl HuN8eQSjyz/RoWoYFYA= =D/T6
-    integrator.merchant.id=sasai-gsp-client
-    integrator.country.code=ZA
-    integrator.currency.code=ZAR
-    integrator.provider.code=NEDBANK
-    payer.default.name=DummyUser
-    payer.default.email=dummyuser@example.com
-    payer.default.mobile=9999999999
-    payer.default.nickname=dummy
-    link.bank.uri=http://integrator-service:5000/integrator/v1/sync/linkbank
-    redirect.uri=https://dev.sasaipaymentgateway.com/dev/cui/gsp/link-bank-response
-    vault.uri=http://vault-service:5000/vault/v1/instruments
-    create.order.uri=http://payment-service:5000/pms/v1/orders/fund-transfer
-    view.order.uri=http://payment-service:5000/pms/v1/orders
-    vault.validate.instrument.token.uri=http://vault-service:5000/vault/v1/instruments/{instrumentToken}/validate
-    sasai.idempotent.key.name=sasai-request-id
-    #########################################################
-    # Properties related to sasai-secure
-    ##########################################################
-    sasai.secure.skip.verification.for=/gsp/prometheus,/gsp/actuator/health,/gsp/actuator/health/liveness,/gsp/actuator/health/readiness,/gsp
-    sasai.secure.module.name=gsp
-    ##########################
-    #Keycloak Related Properties
-    ##########################
-    token.uri=https://dev-auth.sasaipaymentgateway.com/realms/sasai/protocol/openid-connect/token
-    client.id=sasai-gsp-client
-    grant.type=client_credentials
-    client.secret=hrgjqXOKaneXeAsxsGJLZQ6ihEGeKZbM
-  logback.xml: |
-    <?xml version="1.0" encoding="UTF-8"?>
-    <configuration>
-        <property resource="application.properties" />
-        <appender name="Console"
-                  class="ch.qos.logback.core.ConsoleAppender">
-            <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
-                <layout class="com.sasai.commons.logging.config.MaskingPatternLayout">
-                    <maskPattern>\"mobileNumber\"\s*:\s*\"(.*?)\"</maskPattern> <!-- mobile number JSON pattern -->
-                    <maskPattern>\"address\"\s*:\s*\"(.*?)\"</maskPattern> <!-- Address JSON pattern -->
-                    <maskPattern>\"password\"\s*:\s*\"(.*?)\"</maskPattern> <!-- Password JSON pattern -->
-                    <maskPattern>(\d+\.\d+\.\d+\.\d+)</maskPattern> <!-- Ip address IPv4 pattern -->
-                    <maskPattern>(\w+@\w+\.\w+)</maskPattern> <!-- Email pattern -->
-                    <pattern>
-                        {"app":"${spring.application.name}", "trace": "%X{traceId:-}", "span": "%X{spanId:-}","time":"%d{ISO8601}","LEVEL":"%p","thread":"%t","class":"%C{1.}","message":"%msg %throwable"}%n
-                    </pattern>
-                </layout>
-            </encoder>
-        </appender>
-
-        <!-- LOG everything at INFO level -->
-        <root level="info">
-    		<appender-ref ref="Console" />
-        </root>
-
-        <!-- LOG "com.sasai.*" at DEBUG level -->
-        <logger name="com.sasai" level="debug">
-            <appender-ref ref="Console" />
-        </logger>
-
-    </configuration>
+       payment:
+            uri: http://payment-service:5000/pms/v1/orders/payment/initiate
