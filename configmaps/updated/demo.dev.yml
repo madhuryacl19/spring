@@ -1,1 +1,2 @@
-demo.message=message from server 
+demo:
+  message: 'message from server '
